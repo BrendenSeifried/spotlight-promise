@@ -83,3 +83,18 @@ export function thenAsyncGetQuotes() {
  * TODO: Exercise 8: Call your function from exercise 6 using async/await
  */
 
+export async function asyncThenGetQuotes(){
+    console.log('before the fetch');
+
+    const result = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1').then((res)=> res.json()
+    )
+    .then((result)=> {console.log('2 fetch complete') ({quote: result[0], totalResults: result.length})})
+    // .then(({quote})=> quote); single quote
+    .then(({quote})=> quote) //single quote
+    .then(()=> console.log('.then chain complete!'))
+    .catch((error)=> console.error('ohh no it broke'))
+    .finally(()=>console.log('everythings kosher '));
+
+    console.log('after it all')
+    return result;
+}

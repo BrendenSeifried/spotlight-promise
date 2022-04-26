@@ -1,4 +1,4 @@
-import { grabQuotes, getQuotes, thenGetQuotes, asyncTryGetQuotes, thenAsyncGetQuotes } from "./services/promise-me";
+import { grabQuotes, getQuotes, thenGetQuotes, asyncTryGetQuotes, thenAsyncGetQuotes, asyncThenGetQuotes } from "./services/promise-me";
 
 export default function App() {
   const handleClick = (callback) => {
@@ -16,6 +16,8 @@ export default function App() {
       <button onClick={() => handleClick(asyncTryGetQuotes)}>asyncTryGetQuotes</button>;
 
       <button onClick={() => handleClick(thenAsyncGetQuotes)}>thenAsyncGetQuotes</button>;
+
+      <button onClick={() => handleClick(asyncThenGetQuotes)}>asyncThenGetQuotes</button>;
   </>
   );
 }
