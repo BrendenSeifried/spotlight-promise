@@ -5,9 +5,12 @@
  */
 
 export async function grabQuotes() {
+    console.log('first')
     const res = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
+    console.log('second')
 
     const result = await res.json();
+    console.log('third')
     return result;
     
 }
