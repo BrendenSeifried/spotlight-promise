@@ -31,10 +31,11 @@ export function thenGetQuotes(){
     // .then(({quote})=> quote); single quote
     .then(({quote})=> quote) //single quote
     .then(()=> console.log('.then chain complete!'))
-    .catch((error)=> console.error('ohh no it broke'));
+    .catch((error)=> console.error('ohh no it broke'))
+    .finally(()=>console.log('everythings kosher ')); //runs code after try catch(weather or not it passes, used for cleanup like clearing cache)
 
-    console.log('after the function'); //dont know why it wont work
-    return result;
+    // console.log('after the function'); //dont know why it wont work
+    // return result;
 
 }
 
@@ -72,6 +73,11 @@ export async function asyncTryGetQuotes(){
 /**
  * TODO: Exercise 7: Call your function from exercise 7 using .then
  */
+
+export function thenAsyncGetQuotes() {
+    return asyncTryGetQuotes().then(()=>
+    console.log('i forgot to make new code for each exercise :('))
+}
 
 /**
  * TODO: Exercise 8: Call your function from exercise 6 using async/await
