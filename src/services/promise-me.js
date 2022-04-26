@@ -30,7 +30,11 @@ export function thenGetQuotes(){
     .then((result)=> ({quote: result[0], totalResults: result.length}))
     // .then(({quote})=> quote); single quote
     .then(({quote})=> quote) //single quote
-    .then(()=> console.log('.then chain complete!'));
+    .then(()=> console.log('.then chain complete!'))
+    .catch((error)=> console.error('ohh no it broke'));
+
+    console.log('after the function'); //dont know why it wont work
+    return result;
 
 }
 
@@ -49,6 +53,8 @@ export async function asyncTryGetQuotes(){
     return result;
  } catch {
      console.log(error); // makes error message inside try catch 
+ } finally {
+     console.log('all good!');
  }
 }
 /**
