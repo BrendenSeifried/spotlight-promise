@@ -21,8 +21,14 @@ export function getQuotes(){
  */
 
 export function thenGetQuotes(){
+    console.log('before the fetch');
     return fetch('https://futuramaapi.herokuapp.com/api/quotes/1').then((res)=> res.json()
-    ).then((result)=> ({quote: result[0], totalResults: result.length}))
+    )
+    .then((result)=> ({quote: result[0], totalResults: result.length}))
+    // .then(({quote})=> quote); single quote
+    .then(({quote})=> quote) //single quote
+    .then(()=> console.log('.then chain complete!'));
+
 }
 
 /**
